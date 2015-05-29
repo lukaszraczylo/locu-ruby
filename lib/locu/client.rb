@@ -1,10 +1,15 @@
 require 'locu/configuration'
 require 'httparty'
 
+require 'locu/operations/error'
 require 'locu/operations/request'
 
 module Locu
   class Client
+    REQUEST_CLASSES = [
+      Locu::Operations::Request
+    ]
+
     attr_reader :configuration
 
     def initialize(options = nil)

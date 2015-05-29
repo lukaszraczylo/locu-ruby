@@ -9,6 +9,7 @@ module Locu
       end
 
       def execute(req_url = nil, req_data = nil)
+
       end
 
     end

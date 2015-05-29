@@ -1,6 +1,6 @@
 module Locu
   class Configuration
-    AUTH_KEYS = [:app_user_key]
+    AUTH_KEYS = [:app_user_key, :api_host]
     attr_accessor(*AUTH_KEYS)
 
     def initialize(config_hash = nil)
