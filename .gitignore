@@ -1,3 +1,4 @@
 tester.rb
 .DS_Store
 *.log
+*.gem
