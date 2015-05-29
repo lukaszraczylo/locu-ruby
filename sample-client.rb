@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # Sample client for Locu API gem
 
-require 'locu-ruby'
+require 'locu'
 
 CFG_LOCU_KEY = ENV['CFG_LOCU_KEY']

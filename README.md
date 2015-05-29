@@ -1,6 +1,9 @@
 # locu-ruby - gem for LOCU API
 
-[![Gem Version](https://badge.fury.io/rb/locu-ruby.svg)](http://badge.fury.io/rb/locu-ruby) 
+## WARNING
+Gem is unusable at the current stage of development. Please stand by.
+
+[![Gem Version](https://badge.fury.io/rb/locu.svg)](http://badge.fury.io/rb/locu) 
 [![Code Climate](https://codeclimate.com/github/lukaszraczylo/locu-ruby/badges/gpa.svg)](https://codeclimate.com/github/lukaszraczylo/locu-ruby) 
 
 ###### Build status

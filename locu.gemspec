@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'locu/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'locu-ruby'
+  spec.name = 'locu'
   spec.version = Locu::VERSION
   spec.authors = ['Lukasz Raczylo']
   spec.email = ['lukasz@raczylo.com']
   spec.summary = %q{Ruby client library for locu.com API}
   spec.description = 'Provides easy way to interact with the Locu API in any kind of application'
   spec.homepage = 'https://github.com/lukaszraczylo/locu-ruby'
-  spec.license = 'MIT'
+  spec.license = 'Apache'
 
   spec.files = `git ls-files -z`.split("\x0")
   spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
