@@ -1,0 +1,14 @@
+language: ruby
+install:
+  - bundle install
+
+env:
+  global:
+    - secure: HJBD1BW7/FiVeijb/ESnPhVvFNxnkJeGXVTuy2JSOEWPjQHRzzHWFuBMsJLZVjXv7Q3a+lTF8htqtkwO/A+1xoTX2lLjE/Qeb30EsPbVltneGlVziCJu2wShRzb91aXBY//6CPvv6B/SvPbsjRbNj4rX4yES5EEL3UVdYbvHIc0Ce42pwE9hiJeVzMIXGnQbpoYSVlggI0w/Kf9dB1JSl5WYSGJ5CsbrtrZaqeS/scpgjixGRoytgHhIxw9/aU07B5oc/pJ1D7JG3h6XN6HIHrUizkCxwYSimXQV/MlGIYc/9UYVYdXXVAhuOTwqxjX3O/iQNIzR6Qdzhg7BP5iAPA==
+
+notifications:
+  email:
+    recipients:
+      - shippable@raczylo.com
+    on_success: change
+    on_failure: always
