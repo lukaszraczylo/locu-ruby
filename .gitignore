@@ -2,3 +2,4 @@ tester.rb
 .DS_Store
 *.log
 *.gem
+sample-client.rb

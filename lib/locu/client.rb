@@ -1,19 +1,25 @@
-require 'locu/configuration'
+require_relative 'configuration'
 require 'httparty'
 
-require 'locu/operations/error'
-require 'locu/operations/request'
+require_relative 'operations/error'
+require_relative 'operations/request'
+require_relative 'operations/venue'
 
 module Locu
   class Client
     REQUEST_CLASSES = [
-      Locu::Operations::Request
+      Locu::Operations::Request,
+      Locu::Operations::Venue
     ]
 
     attr_reader :configuration
+    attr_accessor :request_data
 
     def initialize(options = nil)
       @configuration = nil
+      @request_data = nil
+      define_request_methods
+
       unless options.nil?
         @configuration = Configuration.new(options)
         check_api_keys
