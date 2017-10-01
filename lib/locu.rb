@@ -1,5 +1,5 @@
-require 'locu/version'
-require 'locu/client'
+require_relative 'locu/version'
+require_relative 'locu/client'
 
 module Locu
   def self.client
