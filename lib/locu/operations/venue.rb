@@ -9,7 +9,7 @@ module Locu
       # Searching for venues using specified attributes
       def search(type = "address", location = "The Strand", menu = true, **other )#, kind = "restaurant", menu = true, menu_item = nil)
         query_frame = Hash.new { |h, k| h[k] = Hash.new(&h.default_proc) }
-        query_frame["fields"] = ["name", "menus"]
+        query_frame["fields"] = ["locu_id", "name", "description", "website_url", "location", "contact", "categories", "menus", "open_hours", "extended", "short_name", "delivery", ]
 
         query_frame["venue_queries"] = Array.new
         query_body = Hash.new { |h, k| h[k] = Hash.new(&h.default_proc) }
@@ -19,12 +19,12 @@ module Locu
 
         query_body["menus"]["$present"] = menu
 
-        if other.has_key?(:menu_item)
-          query_frame["menu_item_queries"] = Array.new
-          query_menu_key = Hash.new { |h, k| h[k] = Hash.new(&h.default_proc) }
-          query_menu_key["name"] = other[:menu_item]
-          query_frame["menu_item_queries"].push(query_menu_key)
-        end
+        # if other.has_key?(:menu_item)
+        #   query_frame["menu_item_queries"] = Array.new
+        #   query_menu_key = Hash.new { |h, k| h[k] = Hash.new(&h.default_proc) }
+        #   query_menu_key["name"] = other[:menu_item]
+        #   query_frame["menu_item_queries"].push(query_menu_key)
+        # end
 
         query_frame["venue_queries"].push(query_body)
 
