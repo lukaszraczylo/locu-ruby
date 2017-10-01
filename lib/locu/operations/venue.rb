@@ -16,6 +16,18 @@ module Locu
 
         type == "city" ? ( query_body["location"]["locality"] = location.split(", ")[0]; query_body["location"]["country"] = location.split(", ")[1]) : false
         type == "geo" ? query_body["location"]["geo"] = location : false
+        if type == "postcode"
+          puts "Location - #{location}"
+          if location.split(", ")[1] == "United Kingdom"
+            puts "Location - UK"
+            # Set default search radius to 1000m
+            other.has_key?(:search_radius) ? radius = other[:search_radius] : radius = 1000
+            pio = Postcodes::IO.new
+            postcode = pio.lookup(location.split(", ")[0])
+            query_body["location"]["geo"] = Hash.new { |h, k| h[k] = Hash.new(&h.default_proc) }
+            query_body["location"]["geo"]["$in_lat_lng_radius"] = [postcode.latitude, postcode.longitude, radius]
+          end
+        end
 
         query_body["menus"]["$present"] = menu
 
@@ -28,7 +40,7 @@ module Locu
 
         query_frame["venue_queries"].push(query_body)
 
-        ap query_frame.to_json
+        ap query_frame
         @request.execute('/venue/search', query_frame)
       end
     end

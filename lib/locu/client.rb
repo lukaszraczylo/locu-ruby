@@ -1,5 +1,6 @@
 require_relative 'configuration'
 require 'httparty'
+require 'postcodes_io'
 
 require_relative 'operations/error'
 require_relative 'operations/request'

@@ -8,14 +8,28 @@ describe 'user session' do
     end
   end
 
-  it 'can list restaurants in London, Great Britain' do
-    params = ["city", "London, Great Britain"]
-    client_request = CLIENT.send("search", params)
+  it 'can list restaurants in London, United Kingdom' do
+    client_request = CLIENT.send("search", "city", "London, United Kingdom")
     if client_request.is_a?(Hash)
       if client_request["status"] != "success" || client_request["venues"].empty?
         fail "Request returned failure or empty set of results. Double check given parameters."
       else
-        client_request["venues"].count < 25 ? (fail "This test should return at least 25 venues") : false
+        expect(client_request["venues"].count).to eq(25)
+        # client_request["venues"].count < 25 ? (fail "This test should return at least 25 venues") : false
+      end
+    else
+      fail "Request should return JSON"
+    end
+  end
+
+  it 'can list restaurants in WC2R 1LA, United Kingdom with no radius' do
+    client_request = CLIENT.send("search", "postcode", "WC2R1LA, United Kingdom")
+    if client_request.is_a?(Hash)
+      if client_request["status"] != "success" || client_request["venues"].empty?
+        fail "Request returned failure or empty set of results. Double check given parameters."
+      else
+        expect(client_request["venues"].count).to eq(25)
+        # client_request["venues"].count < 25 ? (fail "This test should return at least 25 venues") : false
       end
     else
       fail "Request should return JSON"
